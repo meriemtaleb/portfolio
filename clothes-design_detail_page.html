@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo with Overlay</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Portfolio Details - EasyFolio Bootstrap Template</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+  
+  
+  </head>
+  
+  <body class="portfolio-details-page">
+  
+    <header id="header" class="header d-flex align-items-center sticky-top">
+      <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">EasyFolio</h1>
+        </a>
+  
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html#hero">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+  
+        <div class="header-social-links">
+          <a href="https://www.linkedin.com/in/ala-eddine-derai-a6a419291?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+  
+      </div>
+  </header>
+
+
+
+
+  
+  <style>
+
+
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+        html,
+        body {
+          position: relative;
+          height: 100%;
+          overflow-x: hidden;
+         
+        }
+    
+        body {
+          background:white;
+          font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+          font-size: 14px;
+          color: #000;
+          margin: 0;
+          padding: 0;
+        }
+    
+        .swiper {
+          width: 1000px;
+          margin: auto;
+        }
+        
+        /* Ensure images have the correct size */
+        .swiper-wrapper .swiper-slide img {
+          width: 400px;
+          height: 300px;
+          display: block;
+          margin-top: 100px;
+        
+          
+        }
+    
+        /* New styles for image overlay effect */
+        .image-container {
+          position: relative;
+          display: inline-block;
+        }
+           .new-swiper .last{
+         
+            transform: translateY(-50px);
+        }
+    
+    
+        .overlay {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.6);
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          font-size: 16px;
+          pointer-events: none; /* Allows dragging the image without interference */
+        }
+    
+        .image-container:hover .overlay {
+          opacity: 1;
+        }
+    
+    
+    
+    
+         /* General Section Styling */
+      .section-title {
+          text-align: center;
+          margin-bottom: 50px;
+      }
+      
+      
+    
+    .category {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: black;
+        margin-bottom: 5px;
+        margin-top: 60px;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        color: gray;
+    }
+    
+    
+    
+    /* Responsive */
+    
+    /* Responsive */
+    @media (max-width: 788px) {
+        .category-titles {
+            flex-direction: column;
+            gap: 15px;
+        }
+    
+        .title {
+            font-size: 1.8rem;
+        }
+    
+        .subtitle {
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 426px) {
+       
+      .swiper {
+          width: 300px;
+          margin: auto;
+        }
+        
+        /* Ensure images have the correct size */
+        .swiper-wrapper .swiper-slide img {
+          width: 300px;
+          height: 300px;
+          display: block;
+          margin-top: 100px;
+        
+          
+        }
+        
+       
+    }
+    @media (min-width: 427px) and (max-width: 769px) {
+      .swiper {
+          width: 500px;
+          margin: auto;
+        }
+        
+        /* Ensure images have the correct size */
+        .swiper-wrapper .swiper-slide img {
+          width: 300px;
+          height: 300px;
+          display: block;
+          margin-top: 100px;
+        
+          
+        }
+    }
+    
+    
+    
+      
+        
+    
+      
+      </style>
+</head>
+
+
+<div class="new-swiper">
+  <div class="new-slide">
+    <div class="category">
+      <h2 class="title">Clothes design</h2>
+      <p class="subtitle">Explore our collection of creative and professional clothes design.</p>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper last">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="clothes/photo_1_2025-02-15_00-07-46.jpg"class="img-fluid" alt="Logo 1">
+            <div class="overlay">اسحب لرؤية المزيد</div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="clothes/photo_2_2025-02-15_00-07-46.jpg"class="img-fluid" alt="Logo 2">
+            <div class="overlay">اسحب لرؤية المزيد</div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="clothes/photo_3_2025-02-15_00-07-46.jpg"class="img-fluid" alt="Logo 3">
+            <div class="overlay">اسحب لرؤية المزيد</div>
+          </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="clothes/photo_4_2025-02-15_00-07-46.jpg" class="img-fluid" alt="Logo 4">
+            <div class="overlay">اسحب لرؤية المزيد</div>
+          </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="swiper-slide">
+          <div class="image-container">
+            <img src="clothes/photo_5_2025-02-15_00-07-46.jpg"class="img-fluid" alt="Logo 5">
+            <div class="overlay">اسحب لرؤية المزيد</div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    watchSlidesProgress: true,
+    slidesPerView: 3, // Default number of slides per view
+    spaceBetween: 10, // Default space between slides
+    // Enable touch/swipe gestures
+    allowTouchMove: true, // This is enabled by default, so you can omit it if you want
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      // when window width is >= 1024px
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      }
+    }
+  });
+</script>
+  
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+
+</body>
